@@ -4,6 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.util.List;
+
 public class BasePage {
     protected WebDriver driver;
 
@@ -31,5 +33,9 @@ public class BasePage {
 
     public boolean found(By locator) {
         return find(locator).isDisplayed();
+    }
+
+    public List<WebElement> findElements(By locator) {
+        return driver.findElements(locator);
     }
 }

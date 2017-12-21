@@ -5,6 +5,8 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.util.List;
+
 public class GooglePage extends BasePage {
     private String googleURL = "https://www.google.am";
     private By inputLocator = By.cssSelector("input#lst-ib");
@@ -27,6 +29,11 @@ public class GooglePage extends BasePage {
 
     public boolean containsText(String text) {
         return driver.getPageSource().contains(text);
+    }
+
+    public WebElement getFirstResult() {
+        List<WebElement> elements = findElements(By.cssSelector(".rc .r"));
+        return elements.get(0);
     }
 }
 
